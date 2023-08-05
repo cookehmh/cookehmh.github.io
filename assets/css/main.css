@@ -2326,7 +2326,7 @@ input, select, textarea {
 .image.centred {
     display: block;
     margin: 0 auto; /* This centers the image horizontally */
-    width: 75%;
+    width: 80%;
     max-width: 100%; /* Add max-width to limit the size on smaller screens */
 }
 
