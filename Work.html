@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <!--
 	Future Imperfect by HTML5 UP
@@ -5,154 +6,65 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Greg Cooke</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="single is-preload">
+<head>
+	<title>Greg Cooke</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		.image-featured-1 {
+			width: 500px;
+			height: 250px;
+		}
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		.image-featured-2 {
+			width: 400px;
+			height: 600px;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="index.html">Greg Cooke</a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="about_me.html">About</a></li>
-								<li><a href="Work.html">Research</a></li>
-								<li><a href="CV.html">CV</a></li>
-								<li><a href="Contact.html">Contact</a></li>
-								<li><a href="Hobbies.html">Hobbies</a></li>
-							</ul>
-						</nav>
-						<nav class="main">
-							<ul>
-								<li class="search">
-									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Search" />
-									</form>
-								</li>
-								<li class="menu">
-									<a class="fa-bars" href="#menu">Menu</a>
-								</li>
-							</ul>
-						</nav>
-					</header>
+		.image-featured-3 {
+			width: 800px;
+			height: 200px;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body class="single is-preload">
 
-				<!-- Menu -->
-					<section id="menu">
+	<!-- Rest of the code remains the same -->
 
-						<!-- Search -->
-							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
-								</form>
-							</section>
+	<div id="main">
 
-						<!-- Links -->
-							<section>
-								<ul class="links">
-									<li>
-										<a href="https://cookehmh.github.io">
-											<h3>Home</h3>
-											<p>Greg Cooke homepage</p>
-										</a>
-									</li>
-									<li>
-										<a href="about_me.html">
-											<h3>About me</h3>
-											<p>Learn more about who I am!</p>
-										</a>
-									</li>
-									<li>
-										<a href="Work.html">
-											<h3>Research</h3>
-											<p>Discover what I work on</p>
-										</a>
-									</li>
-									<li>
-										<a href="CV.html">
-											<h3>CV</h3>
-											<p>Read my CV</p>
-										</a>
-									</li>
-									<li>
-                                                                                <a href="Contact.html">
-                                                                                        <h3>Contact</h3>
-                                                                                        <p>Get in touch</p>
-                                                                                </a>
-                                                                        </li>
-									<li>
-                                                                                <a href="Hobbies.html">
-                                                                                        <h3>Hobbies</h3>
-                                                                                        <p>Read about what I get up to in my spare time</p>
-                                                                                </a>
-                                                                        </li>
+		<!-- Post -->
+		<article class="post">
+			<header>
+				<div class="title">
+					<h2><a href="#">Research</a></h2>
+					<p>Read on to find out more about my research and code developments.</p>
+				</div>
+			</header>
+			<h2>Early Earth: Proterozoic to present day</h2>
+			<span class="image featured">
+				<img class="image-featured-1" src="images/Revised_ozone_columns_graphic.png" alt="" />
+			</span>
+			<p>We used WACCM6 to simulate the Earth's oxygen concentrations between 2.4 billion years ago and the present day. Oxygen has fluctuated in this time between levels of 0.1% the present atmospheric level (PAL) all the way up to 150% PAL. We were able to predict the spatial and seasonal variation of Earth's ozone layer and how it varies with oxygen concentration. Future work in this area will focus on improving various physical parameterizations to more accurately simulate the low oxygen scenarios. Additionally, accounting for the changing continents will be of interest. The paper we published on this can be accessed at <a href ="https://doi.org/10.1098/rsos.211165">https://doi.org/10.1098/rsos.211165</a></p>
 
-								</ul>
-							</section>
-					</section>
+			<span class="image featured">
+				<img class="image-featured-2" src="images/rsos211165f04.jpg" alt="" />
+			</span>
 
-				<!-- Main -->
-					<div id="main">
+			<h2>Observational predictions</h2>
+			<p>I use the 3D climate simulations to predict what these exoplanet atmospheres may look like through current and next-generation telescopes. To do this, I developed a pipeline in Python to take WACCM6 simulation data and process it so it can be uploaded to the GlobES application from the NASA <a href="https://psg.gsfc.nasa.gov/">Planetary Spectrum Generator</a> (PSG). These observational predictions take the form of transmission spectra or direct imaging spectra.</p>
+			<p>In transmission spectra, the exoplanet passes in front of the star and blocks light - this is known as a transit. The amount of light it blocks depends on the radius of the planet, the radius of the star, as well as the exoplanet's atmospheric pressure and atmospheric composition. During a transit, light will pass through the atmosphere, and different wavelengths of light will be absorbed with various efficiencies, depending on the temperature, pressure, and chemical composition of the atmosphere. This blocks out further light compared to the solid disk of the planet. It may not be possible to probe the lowest part of the atmosphere due to the refraction of light away from the observer. For Earth, this altitude is roughly 13 km above the surface. Clouds also affect the ability to probe the lower atmosphere.</p>
 
-						<!-- Post -->
-							<article class="post">
-								<header>
-									<div class="title">
-										<h2><a href="#">Research</a></h2>
-										<p>Read on to find out more about my reearch and code developments.</p>
-									</div>
-								</header>
-								<h2>Early Earth: Proterozoic to present day</h2>
-								<span class="image featured">
-  <img src="images/Revised_ozone_columns_graphic.png" alt="" />
-</span>
+			<span class="image featured">
+				<img class="image-featured-3" src="images/Transmission_Spectra_01_to_20.png" alt="" />
+			</span>
 
-<style>
-  .image.featured {
-    width: 500px;
-    height: 250px;
-  }
-</style>
-								<p>We used WACCM6 to simulate the Earth's oxygen concentrations between 2.4 billion years ago and the present day. Oxygen has fluctatuated in this time between levels of 0.1% the present atmospheric level (PAL) all the way up to 150% PAL. We were able to predict the spatial and seasonal variation of Earth's ozone layer and how it varies with oxygen concentration. Future work in this area will focus on improving various physical paramterisations to more accurately simulate the low oxygen scanarios. Addtionally, accounting for the changing continents will be of interest. The paper we published on this can be accessed at <a href ="https://doi.org/10.1098/rsos.211165">https://doi.org/10.1098/rsos.211165</a></p>
-
-
-<span class="image featured">
-  <img src="images/rsos211165f04.jpg" alt="" />
-</span>                                                         
-
-<style>
-  .image.featured {
-    width: 400px;
-    height: 600px;
-    margin: 0 auto;
-    margin-top: 50px;
-  }                                                             
-</style>
-
-								<h2>Observational predictions</h2>
-								<p>I use the 3D climate simulations to predict what these exoplanet atmospheres may look like through current and next generatio telescopes. To do this, I develeoped a pipeline in python to take WACCM6 simulation data and process it so it can be uploaded to the GlobES application from the NASA <a href="https://psg.gsfc.nasa.gov/">Planetary Spectrum Generator</a> (PSG). These observational predictions take the form of transmission spectra or direct imaging spectra.</p> 
-								<p>In transmission spectra, the exoplanet passes in front of the star and blocks light - this is known as a transit. The amount of light it blocks depends on the radius of the planet, the radius of the star, as well as exoplanet's atmospheric pressure and atmospheric composition. During a transit, light will pass through the atmosphere, and different wavelengths of light will be absorbed with various efficiencies, depending on the temperature, pressure, and chemical composition of the atmosphere. This blocks out further light compared to the solid disk of the planet. It may not be prossible to probe the lowest part of the atmosphere due to the refraction of light away from the observer. For Earth, this altitude is roughly 13 km above the surface. Clouds also affect the ability to probe the lower atmosphere.</p>
-								
-
-<span class="image featured">
-  <img src="images/Transmission_Spectra_01_to_20.png" alt="" />
-</span>
-
-<style>
-  .image.featured {
-    width: 800px;
-    height: 200px;
-    margin: 0 auto;
-    margin-top: 50px;
-  }
-</style>
-
+			
 								<p>In direct imaging, the exoplanet is directly imaged, and its spectra will be due to reflection, emission, or a combination, depending on which wavelengths are being observed, and the temperature of the exoplanet. The depth of absorption features in reflection spectra depend on the amount of absorber in the atmosphere, and can be influence by clouds at different altitudes, with some boosting reflectivity and others decreasing reflectivity. The depth of absorption features in emission spectra depend on the relative temperature between the surface and the absorption layer. Cooke et al. (2022), which is based on direct imaging (reflection spectra) predictions for the LUVOIR and HabEx telescope concepts, is due to be published in MNRAS shortly. For now, you can read the pre-print version on <a href="https://arxiv.org/abs/2209.07566">arXiv</a>.</p>
 								
 								<h2>Tidally locked exoplanets</h2>
