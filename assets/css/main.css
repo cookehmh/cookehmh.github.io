@@ -2323,24 +2323,19 @@ input, select, textarea {
 				width: 100%;
 			}
 
-		.image.centred {
-                        display: block;
-                        margin: 0 0 3em 0;
-                        width: 70%;
-                }
+	/* New class for centred image */
+.image-centred {
+    display: block;
+    margin: 0 auto; /* This centers the image horizontally */
+    width: 70%; /* The image will fill 70% of the screen width */
+}
 
-                        .image.centred img {
-                                width: 70%;
-                        }
-
-                        @media screen and (max-width: 736px) {
-
-                                .image.centred {
-                                        margin: 0 0 1.5em 0;
-                                }
-
-                        }
-		
+@media screen and (max-width: 736px) {
+    .image.featured {
+        margin: 0 0 1.5em 0;
+    }
+}
+	
 
 		.image.featured {
 			display: block;
