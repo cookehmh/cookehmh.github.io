@@ -13,12 +13,12 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
 		.image-featured-1 {
-		width: 50%; /* Make the image take up 50% of the page width */
-                        height: auto; /* Maintain the aspect ratio of the image */
-                        display: block; /* Ensure the image is a block-level element */
-                        margin: 0 auto; /* Center the image horizontally */
-                        margin-top: 50px;
-		}
+			width: 50%; /* Make the image take up 50% of the page width */
+			display: block; /* Ensure the image is a block-level element */
+			margin: 0 auto; /* Center the image horizontally */
+			margin-top: 50px;
+		}		
+}
 		.image-featured-2 img {
 			width: 50%; /* Make the image take up 50% of the page width */
 			height: auto; /* Maintain the aspect ratio of the image */
@@ -37,10 +37,92 @@
 </head>
 <body class="single is-preload">
 
-	<!-- Rest of the code remains the same -->
+<!-- Wrapper -->
+			<div id="wrapper">
 
-	<div id="main">
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Greg Cooke</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="about_me.html">About</a></li>
+								<li><a href="Work.html">Research</a></li>
+								<li><a href="CV.html">CV</a></li>
+								<li><a href="Contact.html">Contact</a></li>
+								<li><a href="Hobbies.html">Hobbies</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
 
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+								<li>
+                                                                                <a href="https://cookehmh.github.io">
+                                                                                        <h3>Home</h3>
+                                                                                        <p>Greg Cooke homepage</p>
+                                                                                </a>
+                                                                        </li>
+                                                                        <li>
+                                                                                <a href="about_me.html">
+                                                                                        <h3>About me</h3>
+                                                                                        <p>Learn more about who I am!</p>
+                                                                                </a>
+                                                                        </li>
+                                                                        <li>
+                                                                                <a href="Work.html">
+                                                                                        <h3>Research</h3>
+                                                                                        <p>Discover what I work on</p>
+                                                                                </a>
+                                                                        </li>
+                                                                        <li>
+                                                                                <a href="CV.html">
+                                                                                        <h3>CV</h3>
+                                                                                        <p>Read my CV</p>
+                                                                                </a>
+                                                                        </li>
+                                                                        <li>
+                                                                                <a href="Contact.html">
+                                                                                        <h3>Contact</h3>
+                                                                                        <p>Get in touch</p>
+                                                                                </a>
+                                                                        </li>
+                                                                        <li>
+                                                                                <a href="Hobbies.html">
+                                                                                        <h3>Hobbies</h3>
+                                                                                        <p>Read about what I get up to in my spare time</p>
+                                                                                </a>
+                                                                        </li>
+
+								</ul>
+							</section>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
 		<!-- Post -->
 		<article class="post">
 			<header>
