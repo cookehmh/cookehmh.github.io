@@ -4,7 +4,7 @@
 /* Multi-column styling for ordered lists */
 .three-columns {
     column-count: 3;      /* Create three columns */
-    column-gap: 10px;     /* Adjust spacing between columns */
+    column-gap: 8px;     /* Adjust spacing between columns */
     list-style-position: inside; /* Optional: aligns numbers neatly inside the columns */
 }
 
