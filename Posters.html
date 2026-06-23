@@ -264,21 +264,20 @@
 			<script src="assets/js/main.js"></script>
 			<script>
 				(function () {
-					var items = document.querySelectorAll('.poster-gallery .poster-item');
+					var items = document.querySelectorAll('.collapsible-gallery .collapsible-item, .poster-gallery .poster-item');
 
 					items.forEach(function (item) {
-						var full = item.querySelector('.poster-full');
+						var body = item.querySelector('.collapsible-body, .poster-full');
 
 						function syncVisibility() {
-							if (!full) {
+							if (!body) {
 								return;
 							}
 
-							full.style.display = item.open ? 'block' : 'none';
+							body.style.display = item.open ? 'block' : 'none';
 						}
 
 						syncVisibility();
-
 						item.addEventListener('toggle', syncVisibility);
 					});
 				})();
