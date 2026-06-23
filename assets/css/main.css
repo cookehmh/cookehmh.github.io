@@ -39,111 +39,6 @@
     list-style-position: inside; /* Optional: aligns numbers neatly inside the columns */
 }
 
-/* Collapsible poster gallery */
-.poster-gallery {
-    margin-top: 2em;
-}
-
-.poster-item {
-    border: 1px solid rgba(160, 160, 160, 0.3);
-    border-radius: 0.35em;
-    margin-bottom: 1.25em;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.poster-item summary {
-    cursor: pointer;
-    list-style: none;
-    padding: 1em 1.25em;
-    display: flex;
-    align-items: center;
-    gap: 1.25em;
-    transition: background-color 0.2s ease;
-}
-
-.poster-item summary::-webkit-details-marker {
-    display: none;
-}
-
-.poster-item summary::after {
-    content: "\f078";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-left: auto;
-    opacity: 0.5;
-    transition: transform 0.2s ease;
-}
-
-.poster-item[open] summary::after {
-    transform: rotate(180deg);
-}
-
-.poster-item summary:hover {
-    background: rgba(255, 255, 255, 0.04);
-}
-
-.poster-summary-text h3 {
-    font-size: 1.1em;
-    margin-bottom: 0.35em;
-}
-
-.poster-summary-text p {
-    margin: 0;
-    font-size: 0.9em;
-    opacity: 0.75;
-}
-
-.poster-thumb {
-    width: 140px;
-    min-width: 140px;
-    height: auto;
-    border-radius: 0.25em;
-    border: 1px solid rgba(160, 160, 160, 0.25);
-}
-
-.poster-full {
-    padding: 0 1.25em 1.5em;
-    border-top: 1px solid rgba(160, 160, 160, 0.2);
-}
-
-.poster-full img {
-    display: block;
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    margin: 1.25em auto 1em;
-    border-radius: 0.25em;
-}
-
-.poster-full p {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 736px) {
-    .poster-item summary {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .poster-thumb {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .poster-item summary::after {
-        position: absolute;
-        right: 1.25em;
-        top: 1.25em;
-    }
-
-    .poster-item summary {
-        position: relative;
-        padding-right: 2.5em;
-    }
-}
-
 /*
 	Future Imperfect by HTML5 UP
 	html5up.net | @ajlkn
@@ -3787,3 +3682,123 @@ input, select, textarea {
 			}
 
 		}
+
+/* Collapsible poster gallery */
+.poster-gallery {
+	margin-top: 2em;
+}
+
+.poster-gallery .poster-item {
+	border: 1px solid rgba(160, 160, 160, 0.3);
+	border-radius: 0.35em;
+	margin-bottom: 1.25em;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.poster-gallery .poster-item > summary {
+	cursor: pointer;
+	display: block;
+	list-style: none;
+	position: relative;
+	padding: 0 2.75em 0 0;
+	transition: background-color 0.2s ease;
+}
+
+.poster-gallery .poster-item > summary::-webkit-details-marker {
+	display: none;
+}
+
+.poster-gallery .poster-item > summary::after {
+	content: "\f078";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	position: absolute;
+	right: 1.25em;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0.5;
+	transition: transform 0.2s ease;
+}
+
+.poster-gallery .poster-item[open] > summary::after {
+	transform: translateY(-50%) rotate(180deg);
+}
+
+.poster-gallery .poster-item > summary:hover {
+	background: rgba(255, 255, 255, 0.04);
+}
+
+.poster-gallery .poster-summary-inner {
+	display: flex;
+	align-items: center;
+	gap: 1.25em;
+	padding: 1em 1.25em;
+}
+
+.poster-gallery .poster-summary-text h3 {
+	font-size: 1.1em;
+	margin-bottom: 0.35em;
+}
+
+.poster-gallery .poster-summary-text p {
+	margin: 0;
+	font-size: 0.9em;
+	opacity: 0.75;
+}
+
+.poster-gallery .poster-thumb {
+	display: block;
+	width: 160px;
+	min-width: 160px;
+	max-width: 160px;
+	height: 110px;
+	object-fit: cover;
+	object-position: top center;
+	border-radius: 0.25em;
+	border: 1px solid rgba(160, 160, 160, 0.25);
+	flex-shrink: 0;
+}
+
+.poster-gallery .poster-item:not([open]) > .poster-full {
+	display: none !important;
+}
+
+.poster-gallery .poster-item[open] > .poster-full {
+	display: block;
+	padding: 0 1.25em 1.5em;
+	border-top: 1px solid rgba(160, 160, 160, 0.2);
+}
+
+.poster-gallery .poster-item[open] > summary .poster-thumb {
+	display: none;
+}
+
+.poster-gallery .poster-full img {
+	display: block;
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+	margin: 1.25em auto 1em;
+	border-radius: 0.25em;
+}
+
+.poster-gallery .poster-full p {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 736px) {
+	.poster-gallery .poster-summary-inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.poster-gallery .poster-thumb {
+		width: 100%;
+		min-width: 0;
+		max-width: 100%;
+		height: auto;
+		max-height: 180px;
+	}
+}
