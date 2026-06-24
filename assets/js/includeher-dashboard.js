@@ -239,8 +239,9 @@
 			}],
 			layout: {
 				title: title,
-				height: 480,
-				margin: { t: 70, b: 20, l: 20, r: 20 }
+				height: 560,
+				margin: { t: 70, b: 20, l: 20, r: 20 },
+				autosize: true
 			}
 		};
 	}
@@ -281,8 +282,9 @@
 				grid: { rows: 1, columns: 2, pattern: "independent" },
 				barmode: "stack",
 				title: "Subject breakdown - " + displayBoardName(stageKey, boardDisplay),
-				height: Math.max(360, 55 * subjects.length + 120),
-				margin: { t: 80, l: 140 },
+				height: Math.max(420, 55 * subjects.length + 140),
+				margin: { t: 80, l: 140, r: 40 },
+				autosize: true,
 				annotations: [
 					{ text: "Concept mentions", x: 0.22, y: 1.08, xref: "paper", yref: "paper", showarrow: false, font: { size: 13 } },
 					{ text: "Scientist mentions", x: 0.78, y: 1.08, xref: "paper", yref: "paper", showarrow: false, font: { size: 13 } }
@@ -382,8 +384,9 @@
 				barmode: "group",
 				title: "Regional representation - KS4 vs KS5 (% of unique scientists)",
 				xaxis: { title: "Percentage (%)" },
-				height: Math.max(420, 42 * regionList.length + 140),
-				margin: { l: 160, t: 70 }
+				height: Math.max(500, 42 * regionList.length + 160),
+				margin: { l: 160, t: 70, r: 40 },
+				autosize: true
 			}
 		};
 	}
@@ -505,6 +508,9 @@
 		if (!chartClickBound && typeof chartEl.on === "function") {
 			chartEl.on("plotly_click", onChartClick);
 			chartClickBound = true;
+		}
+		if (typeof Plotly !== "undefined" && Plotly.Plots && Plotly.Plots.resize) {
+			Plotly.Plots.resize(chartEl);
 		}
 		refreshDemoValues();
 		showNamesForSelection();
