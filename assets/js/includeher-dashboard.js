@@ -224,6 +224,7 @@
 
 	function pieFigure(labels, counts, displayLabels, hover, title, colours) {
 		colours = colours || REGION_COLOURS;
+		var labelPad = Math.max(100, 40 + counts.length * 12);
 		return {
 			data: [{
 				type: "pie",
@@ -233,15 +234,17 @@
 				marker: { colors: counts.map(function (_, i) { return colours[i % colours.length]; }) },
 				textinfo: "percent+label",
 				textposition: "outside",
+				outsidetextfont: { size: 12 },
 				hovertext: hover,
 				hoverinfo: "text",
 				customdata: labels
 			}],
 			layout: {
 				title: title,
-				height: 560,
-				margin: { t: 70, b: 20, l: 20, r: 20 },
-				autosize: true
+				height: Math.max(560, 320 + counts.length * 28),
+				margin: { t: 80, b: labelPad, l: labelPad, r: labelPad },
+				autosize: true,
+				showlegend: false
 			}
 		};
 	}
@@ -282,15 +285,17 @@
 				grid: { rows: 1, columns: 2, pattern: "independent" },
 				barmode: "stack",
 				title: "Subject breakdown - " + displayBoardName(stageKey, boardDisplay),
-				height: Math.max(420, 55 * subjects.length + 140),
-				margin: { t: 80, l: 140, r: 40 },
+				height: Math.max(420, 55 * subjects.length + 160),
+				margin: { t: 90, b: 70, l: 140, r: 50 },
 				autosize: true,
 				annotations: [
 					{ text: "Concept mentions", x: 0.22, y: 1.08, xref: "paper", yref: "paper", showarrow: false, font: { size: 13 } },
 					{ text: "Scientist mentions", x: 0.78, y: 1.08, xref: "paper", yref: "paper", showarrow: false, font: { size: 13 } }
 				],
-				xaxis: { title: "Mentions" },
-				xaxis2: { title: "Mentions" }
+				xaxis: { title: { text: "Mentions", standoff: 12 }, automargin: true },
+				xaxis2: { title: { text: "Mentions", standoff: 12 }, automargin: true },
+				yaxis: { automargin: true },
+				yaxis2: { automargin: true }
 			}
 		};
 	}
@@ -383,9 +388,10 @@
 			layout: {
 				barmode: "group",
 				title: "Regional representation - KS4 vs KS5 (% of unique scientists)",
-				xaxis: { title: "Percentage (%)" },
-				height: Math.max(500, 42 * regionList.length + 160),
-				margin: { l: 160, t: 70, r: 40 },
+				xaxis: { title: { text: "Percentage (%)", standoff: 12 }, automargin: true },
+				yaxis: { automargin: true },
+				height: Math.max(500, 42 * regionList.length + 180),
+				margin: { l: 160, t: 70, r: 50, b: 70 },
 				autosize: true
 			}
 		};
