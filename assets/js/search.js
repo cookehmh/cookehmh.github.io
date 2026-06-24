@@ -25,8 +25,8 @@
 		{
 			title: "Education ù IncludeHer UK",
 			url: "Education.html",
-			keywords: "education includeher women science curriculum gcse a-level syllabus",
-			description: "Study of the representation of named scientists in UK science education syllabi."
+			keywords: "education includeher women science curriculum gcse a-level syllabus interactive dashboard explorer",
+			description: "Study of named scientists in UK science syllabi, with an interactive data explorer."
 		},
 		{
 			title: "Publications",

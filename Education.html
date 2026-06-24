@@ -153,8 +153,47 @@
 			</span>
 			<p><em>Regional representation of named scientists compared across Key Stage 4 and Key Stage 5.</em></p>
 
-			<h3>Data and interactive explorer</h3>
-			<p>The <a href="https://github.com/cookehmh/IncludeHerUK">IncludeHer UK repository</a> contains the raw syllabus data, processed statistics, plotting scripts, and an interactive dashboard. The dashboard lets you filter by key stage, exam board, and chart type, hover over segments for counts and percentages, and click through to see every named scientist in a given group.</p>
+			<h3>Interactive data explorer</h3>
+			<p>Use the explorer below to filter by key stage, exam board, and chart type. Hover over chart segments for counts and percentages, or click a segment to list every named scientist in that group. The full dataset and analysis code are also available on <a href="https://github.com/cookehmh/IncludeHerUK">GitHub</a>.</p>
+
+			<div id="includeher-dashboard" class="includeher-dashboard" aria-live="polite">
+				<p class="includeher-loading">Loading interactive explorer&hellip;</p>
+
+				<div class="includeher-controls">
+					<h4>Filters</h4>
+					<div class="includeher-control-row">
+						<label for="includeher-stage">Key stage</label>
+						<select id="includeher-stage" name="includeher-stage"></select>
+					</div>
+					<div class="includeher-control-row">
+						<label for="includeher-board">Exam board</label>
+						<select id="includeher-board" name="includeher-board"></select>
+					</div>
+					<div class="includeher-control-row">
+						<label for="includeher-view">Chart view</label>
+						<select id="includeher-view" name="includeher-view"></select>
+					</div>
+				</div>
+
+				<div id="includeher-summary" class="includeher-summary-wrap"></div>
+				<div id="includeher-chart" class="includeher-chart" role="img" aria-label="IncludeHer UK data chart"></div>
+
+				<div class="includeher-controls includeher-demo-controls">
+					<h4>Demographic explorer</h4>
+					<p class="includeher-demo-hint">Pick a group to list every named scientist, or click a chart segment above.</p>
+					<div class="includeher-control-row">
+						<label for="includeher-demo-dimension">Explore by</label>
+						<select id="includeher-demo-dimension" name="includeher-demo-dimension"></select>
+					</div>
+					<div class="includeher-control-row">
+						<label for="includeher-demo-value">Group</label>
+						<select id="includeher-demo-value" name="includeher-demo-value"></select>
+					</div>
+				</div>
+
+				<h4 class="includeher-names-heading">Scientists in selected group</h4>
+				<div id="includeher-names" class="includeher-names"></div>
+			</div>
 
 			<p>If you use this data or code, please cite the accompanying IncludeHer UK journal article (citation details to be added on publication).</p>
 
@@ -181,6 +220,8 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/search.js"></script>
+			<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+			<script src="assets/js/includeher-dashboard.js"></script>
 
 	</body>
 </html>
