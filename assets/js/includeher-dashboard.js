@@ -49,6 +49,7 @@
 	var demoDimensionSelect = null;
 	var demoValueSelect = null;
 	var currentViewName = VIEW_OPTIONS[0];
+	var chartClickBound = false;
 
 	function prettify(text) {
 		if (!text) {
@@ -501,6 +502,10 @@
 		var fig = buildFigure(stageKey, boardSelect.value, viewName);
 		var config = { responsive: true, displayModeBar: false };
 		Plotly.react(chartEl, fig.data, fig.layout, config);
+		if (!chartClickBound && typeof chartEl.on === "function") {
+			chartEl.on("plotly_click", onChartClick);
+			chartClickBound = true;
+		}
 		refreshDemoValues();
 		showNamesForSelection();
 	}
@@ -554,7 +559,6 @@
 		demoValueSelect.addEventListener("change", function () {
 			showNamesForSelection(DEMOGRAPHIC_OPTIONS[demoDimensionSelect.value], demoValueSelect.value);
 		});
-		chartEl.on("plotly_click", onChartClick);
 	}
 
 	function populateSelect(select, options, values) {
@@ -574,9 +578,23 @@
 		}
 	}
 
+	function dataUrl() {
+		var path = window.location.pathname || "";
+		var base = path.substring(0, path.lastIndexOf("/") + 1);
+		if (!base || base === "/") {
+			return "data/includeher-data.json";
+		}
+		return base + "data/includeher-data.json";
+	}
+
 	function init() {
 		var root = document.getElementById("includeher-dashboard");
 		if (!root) {
+			return;
+		}
+
+		if (typeof Plotly === "undefined") {
+			showError("The chart library could not be loaded. Check your network connection and refresh the page.");
 			return;
 		}
 
@@ -593,10 +611,10 @@
 		populateSelect(viewSelect, VIEW_OPTIONS);
 		populateSelect(demoDimensionSelect, Object.keys(DEMOGRAPHIC_OPTIONS));
 
-		fetch("data/includeher-data.json")
+		fetch(dataUrl())
 			.then(function (response) {
 				if (!response.ok) {
-					throw new Error("Could not load dashboard data.");
+					throw new Error("Could not load dashboard data (" + response.status + ").");
 				}
 				return response.json();
 			})
@@ -609,7 +627,7 @@
 			})
 			.catch(function (err) {
 				showError("The interactive explorer could not be loaded. Please try again later.");
-				console.error(err);
+				console.error("IncludeHer dashboard error:", err);
 			});
 	}
 
