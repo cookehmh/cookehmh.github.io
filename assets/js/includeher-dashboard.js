@@ -489,6 +489,13 @@
 		}
 	}
 
+	function resizeChart() {
+		if (!chartEl || typeof Plotly === "undefined" || !Plotly.Plots || !Plotly.Plots.resize) {
+			return;
+		}
+		Plotly.Plots.resize(chartEl);
+	}
+
 	function refreshChart() {
 		var stageKey = getStageKey();
 		var viewName = viewSelect.value;
@@ -510,7 +517,9 @@
 			chartClickBound = true;
 		}
 		if (typeof Plotly !== "undefined" && Plotly.Plots && Plotly.Plots.resize) {
-			Plotly.Plots.resize(chartEl);
+			resizeChart();
+			window.requestAnimationFrame(resizeChart);
+			window.setTimeout(resizeChart, 150);
 		}
 		refreshDemoValues();
 		showNamesForSelection();
@@ -630,6 +639,7 @@
 				bindEvents();
 				refreshChart();
 				root.classList.add("is-ready");
+				window.addEventListener("resize", resizeChart);
 			})
 			.catch(function (err) {
 				showError("The interactive explorer could not be loaded. Please try again later.");
