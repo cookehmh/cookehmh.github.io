@@ -3841,22 +3841,39 @@ input, select, textarea {
 	border-radius: 10px;
 }
 
+.site-search-form {
+	margin-bottom: 1.5em;
+}
+
+.site-search-form input[type="text"] {
+	width: 100%;
+}
+
+.about-content-wrap {
+	position: relative;
+}
+
 .about-photo-float-left {
 	float: left;
-	width: 160px;
-	margin: 0.25em 1.5em 1em 0;
+	width: 88px;
+	margin: 0 1em 0.5em 0;
 }
 
 .about-photo-float-left img {
-	aspect-ratio: 1;
+	width: 88px;
+	height: 88px;
 	object-fit: cover;
 }
 
 .about-photo-float-right {
 	float: right;
-	width: 42%;
-	max-width: 340px;
-	margin: 0 0 1em 1.5em;
+	width: 150px;
+	margin: 0 0 0.5em 1em;
+}
+
+.about-photo-float-right img {
+	width: 100%;
+	height: auto;
 }
 
 .about-photo-float figcaption {
@@ -3946,14 +3963,17 @@ input[type="reset"]:hover {
 	.about-photo-float-left,
 	.about-photo-float-right {
 		float: none;
-		width: 100%;
-		max-width: 100%;
-		margin: 0 0 1.25em 0;
+		width: auto;
+		max-width: 140px;
+		margin: 0 auto 1em auto;
+		text-align: center;
 	}
 
-	.about-photo-float-left img {
-		aspect-ratio: auto;
-		max-width: 200px;
+	.about-photo-float-left img,
+	.about-photo-float-right img {
+		width: 100%;
+		height: auto;
+		max-width: 140px;
 		margin: 0 auto;
 	}
 }
