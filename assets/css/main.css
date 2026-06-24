@@ -3999,10 +3999,10 @@ body.single:has(.education-post) #main {
 
 @media screen and (min-width: 981px) {
 	.includeher-chart-breakout {
-		width: 100vw;
-		max-width: 100vw;
-		margin-left: calc(50% - 50vw);
-		margin-right: calc(50% - 50vw);
+		width: 50vw;
+		max-width: 50vw;
+		margin-left: calc(50% - 25vw);
+		margin-right: calc(50% - 25vw);
 		position: relative;
 	}
 
