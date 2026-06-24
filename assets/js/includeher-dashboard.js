@@ -222,6 +222,21 @@
 		return html.join("");
 	}
 
+	function axisRangeFromValues() {
+		var maxVal = 0;
+		for (var i = 0; i < arguments.length; i++) {
+			arguments[i].forEach(function (v) {
+				if (v > maxVal) {
+					maxVal = v;
+				}
+			});
+		}
+		if (maxVal === 0) {
+			return [0, 1];
+		}
+		return [0, Math.max(1, Math.ceil(maxVal * 1.1))];
+	}
+
 	function pieFigure(labels, counts, displayLabels, hover, title, colours) {
 		colours = colours || REGION_COLOURS;
 		var labelPad = Math.max(100, 40 + counts.length * 12);
@@ -274,6 +289,9 @@
 			hoverS.push("Scientist mentions<br>Men: " + ms + " (" + (ms / totS * 100).toFixed(1) + "%)<br>Women: " + fs + " (" + (fs / totS * 100).toFixed(1) + "%)");
 		});
 
+		var conceptRange = axisRangeFromValues(maleC, femaleC);
+		var scientistRange = axisRangeFromValues(maleS, femaleS);
+
 		return {
 			data: [
 				{ type: "bar", orientation: "h", y: yLabels, x: maleC, name: "Men", marker: { color: MALE_COLOUR }, hovertext: hoverC, hoverinfo: "text", xaxis: "x", yaxis: "y" },
@@ -292,8 +310,8 @@
 					{ text: "Concept mentions", x: 0.22, y: 1.08, xref: "paper", yref: "paper", showarrow: false, font: { size: 13 } },
 					{ text: "Scientist mentions", x: 0.78, y: 1.08, xref: "paper", yref: "paper", showarrow: false, font: { size: 13 } }
 				],
-				xaxis: { title: { text: "Mentions", standoff: 12 }, automargin: true },
-				xaxis2: { title: { text: "Mentions", standoff: 12 }, automargin: true },
+				xaxis: { title: { text: "Mentions", standoff: 12 }, automargin: true, range: conceptRange, rangemode: "tozero" },
+				xaxis2: { title: { text: "Mentions", standoff: 12 }, automargin: true, range: scientistRange, rangemode: "tozero" },
 				yaxis: { automargin: true },
 				yaxis2: { automargin: true }
 			}
@@ -370,6 +388,8 @@
 		var totalA = regionsA.labels.reduce(function (s, k) { return s + regionsA.counter[k]; }, 0) || 1;
 		var pctG = regionList.map(function (r) { return (regionsG.counter[r] || 0) / totalG * 100; });
 		var pctA = regionList.map(function (r) { return (regionsA.counter[r] || 0) / totalA * 100; });
+		var pctMax = Math.max.apply(null, pctG.concat(pctA).concat([0]));
+		var pctRange = pctMax === 0 ? [0, 1] : [0, Math.ceil(pctMax * 1.1)];
 		var yLabels = regionList.map(prettify);
 		var hoverG = regionList.map(function (r) {
 			var c = regionsG.counter[r] || 0;
@@ -388,7 +408,7 @@
 			layout: {
 				barmode: "group",
 				title: "Regional representation - KS4 vs KS5 (% of unique scientists)",
-				xaxis: { title: { text: "Percentage (%)", standoff: 12 }, automargin: true },
+				xaxis: { title: { text: "Percentage (%)", standoff: 12 }, automargin: true, range: pctRange, rangemode: "tozero" },
 				yaxis: { automargin: true },
 				height: Math.max(500, 42 * regionList.length + 180),
 				margin: { l: 160, t: 70, r: 50, b: 70 },
