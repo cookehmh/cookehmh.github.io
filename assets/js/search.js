@@ -43,7 +43,7 @@
 		{
 			title: "Posters",
 			url: "Posters.html",
-			keywords: "posters conference exoplanets exoclimes rocky worlds ozone ecology",
+			keywords: "posters conference exoplanets exoclimes rocky worlds ozone ecology origins federation",
 			description: "Conference posters on exoplanets, ozone, Hycean worlds, and ecology."
 		},
 		{
@@ -87,6 +87,12 @@
 			url: "Work.html",
 			keywords: "swim code github python stellar spectra jupyter",
 			description: "Stellar Wind and Irradiance Module for scaling stellar spectra to exoplanets."
+		},
+		{
+			title: "Astroecology in three dimensions",
+			url: "Posters.html",
+			keywords: "astroecology ecology gcm climate habitable worlds origins federation switzerland",
+			description: "Ongoing ecological models of habitable worlds through global climate modelling, presented at the Origins Federation Conference in Switzerland, September 2026."
 		},
 		{
 			title: "Ecological modelling of habitable ocean worlds",
