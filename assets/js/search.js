@@ -19,8 +19,8 @@
 		{
 			title: "Research",
 			url: "Work.html",
-			keywords: "research hycean k2-18 earth ozone waccm trappist proxima spectra swim",
-			description: "Hycean atmospheres, Early Earth oxygen, observational predictions, tidally locked planets, and code."
+			keywords: "research hycean k2-18 earth ozone waccm trappist proxima spectra swim astroecology ecology gcm lotka volterra",
+			description: "Hycean atmospheres, astroecology, Early Earth oxygen, observational predictions, tidally locked planets, and code."
 		},
 		{
 			title: "Education ù IncludeHer UK",
@@ -57,6 +57,18 @@
 			url: "Hobbies.html",
 			keywords: "hobbies running travel guinness",
 			description: "Personal interests and activities outside research."
+		},
+		{
+			title: "Comparative astroecology in three dimensions",
+			url: "index.html",
+			keywords: "comparative astroecology ecology gcm isca rocke cesm waccm lotka volterra npzd habitable worlds",
+			description: "Ongoing coupling of ecological models with global climate models of habitable worlds."
+		},
+		{
+			title: "Ecological modelling of hycean worlds",
+			url: "index.html",
+			keywords: "hycean ecology lotka volterra microbial ocean k2-18 mnras",
+			description: "Lotka-Volterra ecological modelling of habitable hycean exoplanets, published in MNRAS."
 		},
 		{
 			title: "Modelling sub-Neptunes and Hyceans",
