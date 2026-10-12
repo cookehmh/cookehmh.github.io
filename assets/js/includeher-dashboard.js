@@ -11,8 +11,8 @@
 	var PURPLE_LIGHT = "#9B7FD4";
 
 	var KEY_STAGE_OPTIONS = {
-		"KS5 - A-Level / Scottish Highers (ages 16-18)": "ks5",
-		"KS4 - GCSE / NQ5 (ages 14-16)": "ks4"
+		"KS5 - A-Level / SQ Adv + Highers (ages 16-18)": "ks5",
+		"KS4 - GCSE / SQ5 (ages 14-16)": "ks4"
 	};
 
 	var VIEW_OPTIONS = [
@@ -402,8 +402,8 @@
 
 		return {
 			data: [
-				{ type: "bar", orientation: "h", y: yLabels, x: pctG, name: "KS4 (GCSE / NQ5)", marker: { color: PURPLE }, hovertext: hoverG, hoverinfo: "text", customdata: regionList },
-				{ type: "bar", orientation: "h", y: yLabels, x: pctA, name: "KS5 (A-Level / Highers)", marker: { color: PURPLE_LIGHT }, hovertext: hoverA, hoverinfo: "text", customdata: regionList }
+				{ type: "bar", orientation: "h", y: yLabels, x: pctG, name: "KS4 (GCSE / SQ5)", marker: { color: PURPLE }, hovertext: hoverG, hoverinfo: "text", customdata: regionList },
+				{ type: "bar", orientation: "h", y: yLabels, x: pctA, name: "KS5 (A-Level / SQ Adv + Highers)", marker: { color: PURPLE_LIGHT }, hovertext: hoverA, hoverinfo: "text", customdata: regionList }
 			],
 			layout: {
 				barmode: "group",
@@ -505,7 +505,7 @@
 		boards.forEach(function (board) {
 			var opt = document.createElement("option");
 			opt.value = board;
-			opt.textContent = board;
+			opt.textContent = displayBoardName(stageKey, board);
 			boardSelect.appendChild(opt);
 		});
 		if (boards.indexOf(current) === -1) {
